@@ -1,13 +1,23 @@
 """
-Name: (put your name here)
+Name: Ash Rulifson
 Peers: (add any collaborators)
 References: (anything you checked to solve this)
+Due: October 23, 2026
 """
 
 def get_letter():
-    """ Add your own Docstring """
-    # remove the default return and add your code
-    return ""
+    """ ask user for a single letter: A, B, or C. Ask until they provide a valid input """
+    up_let = ":-)"
+    while len(up_let) != 1:
+        if up_let != ":-)":
+            print("Error: it needs to be a single character.")
+        up_let = input("Give a single uppercase letter 14: ")
+        print("line 15")
+    while up_let != ("A" or "B" or "C"):
+        print("Error: You provided the wrong character.")
+        print("line 18")
+        up_let = input("Give a single uppercase letter 19: ")
+    print(up_let,"is what we've got on line 17")
 
 def get_digit():
     """ Add your own Docstring """
@@ -42,7 +52,7 @@ def main ():
     # ADD YOUR CODE UNDER THIS LINE
     # -------------------------------------------------
 
-    # Your code Here
+    get_letter()
 
     # -------------------------------------------------
     # No need to modify anything Below this line
