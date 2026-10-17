@@ -1,0 +1,33 @@
+PLAN FOR HOMEWORK 5
+
+For this homework you need to complete four tasks:
+
+Make the get_letter function with input checking for the requested option.
+Make the get_digit function with input checking for the requested option.
+Make the check_pattern function.
+Complete the main function
+
+STEPS TO SOLVE THE HOMEWORK
+1. PLAN your solution in paper
+2. test your paper solution with example values
+3. transcribe your paper solution to python in small increments... running the program 
+as you go to make sure you have not introduced syntax errors
+4. once a full function (task) is finished, you should run the tests to see if the 
+function makes sense logically.
+
+
+    st_list = ["@C@2", "@2B", "A3", "C2C2", "AA@1", "@B@33",
+    "B@2@", "@@C1", "1B@", "A@@2", "@A3@", "@1@A", "2AA@",
+    "1B1B", "333B", "1@CC", "3@@C", "333C"]
+    
+    
+CHECK_PATTERN()
+**for** every string in st_list, check if it **contains** given letter and digit.
+if does not contain both letter and digit, *continue*
+if it contains both letter and digit:
+    check which comes first (letter always comes first, I think, because of the order 
+    of the inputs)
+        **if** in the correct order, *break* loop and print -- or something
+        > (we don't want it to break the loop before it has finished going through the
+          whole list, but we do want it to remember to print the matching value)
+        **else** it is not in the right order, we *continue*
