@@ -8,16 +8,17 @@ Due: October 23, 2026
 def get_letter():
     """ ask user for a single letter: A, B, or C. Ask until they provide a valid input """
     up_let = ":-)"
-    while len(up_let) != 1:
-        if up_let != ":-)":
-            print("Error: it needs to be a single character.")
-        up_let = input("Give a single uppercase letter 14: ")
-        print("line 15")
-    while up_let != ("A" or "B" or "C"):
-        print("Error: You provided the wrong character.")
-        print("line 18")
-        up_let = input("Give a single uppercase letter 19: ")
-    print(up_let,"is what we've got on line 17")
+    while (len(up_let) != 1) or (up_let != ("A" or "B" or "C")):
+        if up_let != ":-)": # prevents printing error before asking for input
+            if len(up_let) != 1:
+                print("Error: it needs to be a single character.")
+                up_let = input("Give a single uppercase letter 14: ")
+            if up_let != ("A" or "B" or "C"):
+                print("Error: You provided the wrong character.")
+                up_let = input("Give a single uppercase letter 17: ")
+        else: # initial request for input
+            up_let = input("Give a single uppercase letter 19: ")
+    return up_let
 
 def get_digit():
     """ Add your own Docstring """
