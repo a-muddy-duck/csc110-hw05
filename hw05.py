@@ -19,7 +19,7 @@ def get_letter():
                 print("Error: You provided the wrong character.")
                 up_let = input("Give a single uppercase letter: ")
         else: # initial request for input
-            up_let = input("Give a single uppercase letter, initial: ")
+            up_let = input("Give a single uppercase letter: ")
     # if very first input was perfect:
     return up_let
 
@@ -49,7 +49,7 @@ def get_digit():
 
 
 def check_pattern(letter, digit, lst):
-    """ Add your own Docstring """
+    """ check list for strings that contain provided letter and digit in same order """
     global st_list
     global match
     for item in st_list[0:17]:
@@ -64,7 +64,7 @@ def check_pattern(letter, digit, lst):
                     count += 1
                     if char == letter or char == digit:
                         
-                        while first == "":
+                        while first == "" and char != digit:
                             first = item[count-1]
                             break
                         while first != "" and char == digit:
@@ -81,12 +81,13 @@ def check_pattern(letter, digit, lst):
             
         else: # can't be this list item, move to the next one in the list
             continue
+    return match
         
         
     # print out all matching values in the right format
     print("Strings with the pattern:")
-    for speck in match:
-        print(speck, end = " ")
+    for elem in match:
+        print(elem, end = " ")
     print()
 
 
@@ -112,11 +113,18 @@ def main ():
     #          IF the user replies with anything else, the loop ends
     # ADD YOUR CODE UNDER THIS LINE
     # -------------------------------------------------
-    global match
-    match = list()
-    letter = get_letter()
-    digit = get_digit()
-    check_pattern(letter, digit, st_list)
+    again = "y"
+    while again == "y":
+        global match
+        match = list()
+        letter = get_letter()
+        digit = get_digit()
+        check_pattern(letter, digit, st_list)
+        print("Strings with the pattern:")
+        for elem in match:
+            print(elem, end = " ")
+        print()
+        again = input("Try Again? (y/n): ")
 
     # -------------------------------------------------
     # No need to modify anything Below this line
