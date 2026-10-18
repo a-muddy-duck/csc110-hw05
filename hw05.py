@@ -13,11 +13,14 @@ def get_letter():
             if len(up_let) != 1:
                 print("Error: it needs to be a single character.")
                 up_let = input("Give a single uppercase letter: ")
-            if up_let != ("A" or "B" or "C"):
+            if up_let == "A" or up_let == "B" or up_let == "C":
+                return up_let
+            else:
                 print("Error: You provided the wrong character.")
                 up_let = input("Give a single uppercase letter: ")
         else: # initial request for input
-            up_let = input("Give a single uppercase letter: ")
+            up_let = input("Give a single uppercase letter, initial: ")
+    # if very first input was perfect:
     return up_let
 
 def get_digit():
@@ -47,9 +50,44 @@ def get_digit():
 
 def check_pattern(letter, digit, lst):
     """ Add your own Docstring """
+    global st_list
+    for item in st_list[0:17]:
+        if letter in item:
+            str_len = len(item)
+            print(item, ",", str_len)
+            count = 0
+            if digit not in item:
+                print(digit, "not in item")
+                continue
+            else: # if both digit and letter are in the list item
+                first = ""
+                for char in item[0:str_len]:
+                    count += 1
+                    
+                    if char == letter or char == digit:
+                        
+                        while first == "":
+                            first = item[count-1]
+                            break
+                        while first != "" and char == digit:
+                            second = item[count-1]
+                            print("first =", first, "second =", second)
+                            break
+                    
+                    print("end", item[count-1])
+                else:
+                    continue
+            # todo: check if they are in the right order
+            # when true, append current item to a list of just matching values
+            
+            
+        else: # can't be this list item, move to the next one in the list
+            continue
+    
+    # print out all matching values in the right format
     print("Strings with the pattern:")
-    for speck in st_list:
-        print(speck, end = " ")
+    #for match in match_list:
+     #   print(match, end = " ")
     print()
 
 
@@ -60,9 +98,11 @@ def main ():
 
     # The list inside of which we will search the user pair (DO NOT MODIFY)
     # -------------------------------------------------
+    global st_list
     st_list = ["@C@2", "@2B", "A3", "C2C2", "AA@1", "@B@33",
     "B@2@", "@@C1", "1B@", "A@@2", "@A3@", "@1@A", "2AA@",
     "1B1B", "333B", "1@CC", "3@@C", "333C"]
+    
 
     # TODO: Add your calls to get_letter, get_digit, and check_pattern
     # Inside a loop so that:
@@ -73,9 +113,9 @@ def main ():
     #          IF the user replies with anything else, the loop ends
     # ADD YOUR CODE UNDER THIS LINE
     # -------------------------------------------------
-
     letter = get_letter()
     digit = get_digit()
+    check_pattern(letter, digit, st_list)
 
     # -------------------------------------------------
     # No need to modify anything Below this line
