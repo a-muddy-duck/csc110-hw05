@@ -44,3 +44,24 @@ for all characters in current string -> for chars in string[len(idx)]
     how many times to do this by doing it once for each character in the string.
 figure out which element is the first letter and which element number is the first
 digit. compare those two index numbers. if they come in the right order, move forward.
+
+
+Bug in check_pattern:
+current code:
+    global st_list
+    for item in st_list[0:17]:
+        if letter and digit in item:
+            str_len = len(item)
+            print(item, ",", str_len)
+output:
+only prints the strings in the list that are 3 or 4 characters long, and only some of 
+those. SOLVED: not a bug; it is only printing strings that match the letter and digit
+previously given. it does run through the whole list in the for loop (which I know 
+because I added a line directly under the for loop: `print(item)`, and it prints the
+whole list)
+
+bedtime 10/17:
+check_pattern is able to identify which strings have both the letter and digit in the 
+right order. NEXT: adjust printing so only those identified strings are printed. try
+doing this with append to a new list perhaps, that then is printed in a for loop after
+"strings with the pattern:"?
