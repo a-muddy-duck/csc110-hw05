@@ -73,7 +73,8 @@ def check_pattern(letter, digit, lst):
                             break
                         while first != "" and char == digit:
                             second = item[count-1]
-                            match.append(item)
+                            while item not in match: # doesn't add dupes
+                                match.append(item)
                             print("match list", match)
                             
                             print("first =", first, "second =", second)
@@ -91,8 +92,8 @@ def check_pattern(letter, digit, lst):
         
     # print out all matching values in the right format
     print("Strings with the pattern:")
-    #for match in match_list:
-     #   print(match, end = " ")
+    for speck in match:
+        print(speck, end = " ")
     print()
 
 
