@@ -51,6 +51,7 @@ def get_digit():
 def check_pattern(letter, digit, lst):
     """ Add your own Docstring """
     global st_list
+    global match
     for item in st_list[0:17]:
         if letter in item:
             str_len = len(item)
@@ -62,6 +63,7 @@ def check_pattern(letter, digit, lst):
             else: # if both digit and letter are in the list item
                 first = ""
                 for char in item[0:str_len]:
+                    print(f"for {char} in {item}")
                     count += 1
                     
                     if char == letter or char == digit:
@@ -71,10 +73,12 @@ def check_pattern(letter, digit, lst):
                             break
                         while first != "" and char == digit:
                             second = item[count-1]
+                            match.append(item)
+                            print("match list", match)
+                            
                             print("first =", first, "second =", second)
                             break
                     
-                    print("end", item[count-1])
                 else:
                     continue
             # todo: check if they are in the right order
@@ -83,7 +87,8 @@ def check_pattern(letter, digit, lst):
             
         else: # can't be this list item, move to the next one in the list
             continue
-    
+        
+        
     # print out all matching values in the right format
     print("Strings with the pattern:")
     #for match in match_list:
@@ -113,6 +118,8 @@ def main ():
     #          IF the user replies with anything else, the loop ends
     # ADD YOUR CODE UNDER THIS LINE
     # -------------------------------------------------
+    global match
+    match = list()
     letter = get_letter()
     digit = get_digit()
     check_pattern(letter, digit, st_list)
