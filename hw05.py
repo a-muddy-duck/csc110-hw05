@@ -49,7 +49,7 @@ def get_digit():
 
 
 def check_pattern(letter, digit, lst):
-    """ check list for strings that contain provided letter and digit in same order """
+    """ check the list for strings that contain provided letter and digit in same order """
     global st_list
     global match
     for item in st_list[0:17]:
@@ -81,7 +81,6 @@ def check_pattern(letter, digit, lst):
             
         else: # can't be this list item, move to the next one in the list
             continue
-    return match
         
         
     # print out all matching values in the right format
@@ -120,10 +119,6 @@ def main ():
         letter = get_letter()
         digit = get_digit()
         check_pattern(letter, digit, st_list)
-        print("Strings with the pattern:")
-        for elem in match:
-            print(elem, end = " ")
-        print()
         again = input("Try Again? (y/n): ")
 
     # -------------------------------------------------
