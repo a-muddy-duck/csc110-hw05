@@ -21,32 +21,36 @@ def get_letter():
     return up_let
 
 def get_digit():
-    """ Add your own Docstring """
+    """ pester user for a 1, 2 or 3 until they do it """
     num_key = "0"
     num_key = input("Give a single number character: ")
-# ask if it is more than one digit or outside of [1,3]
+# ask if it is an invalid input. if it is:
     while num_key != "1" and num_key != "2" and num_key != "3":
         # check if they provided a digit. no digit:
         if not num_key.isdigit():
             print("Error: your input should be only digits.")
             num_key = input("Give a single number character: ")
             continue
-        else: # they did provide a digit
+        # they did provide a digit:
+        else:
             # check if it's between 1 and 3
-            if num_key == "1" or num_key == "2" or num_key == "3": # works
+            if num_key == "1" or num_key == "2" or num_key == "3": # right range
                 break
             else: # it's not between 1 and 3
                 print("Error: a single digit needs to be in [1,3].")
                 num_key = input("Give a single number character: ")
                 continue
+# if the input was valid:
     return num_key
     
 
 
 def check_pattern(letter, digit, lst):
     """ Add your own Docstring """
-    # remove the default pass and add your code
-    pass
+    print("Strings with the pattern:")
+    for speck in st_list:
+        print(speck, end = " ")
+    print()
 
 
 #  The function main is INCOMPLETE, you must finish it
@@ -70,8 +74,8 @@ def main ():
     # ADD YOUR CODE UNDER THIS LINE
     # -------------------------------------------------
 
-    #get_letter()
-    get_digit()
+    letter = get_letter()
+    digit = get_digit()
 
     # -------------------------------------------------
     # No need to modify anything Below this line
