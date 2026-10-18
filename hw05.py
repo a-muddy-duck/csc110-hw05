@@ -55,17 +55,13 @@ def check_pattern(letter, digit, lst):
     for item in st_list[0:17]:
         if letter in item:
             str_len = len(item)
-            print(item, ",", str_len)
             count = 0
-            if digit not in item:
-                print(digit, "not in item")
+            if digit not in item: # can't be this one, move on
                 continue
             else: # if both digit and letter are in the list item
                 first = ""
                 for char in item[0:str_len]:
-                    print(f"for {char} in {item}")
                     count += 1
-                    
                     if char == letter or char == digit:
                         
                         while first == "":
@@ -75,9 +71,6 @@ def check_pattern(letter, digit, lst):
                             second = item[count-1]
                             while item not in match: # doesn't add dupes
                                 match.append(item)
-                            print("match list", match)
-                            
-                            print("first =", first, "second =", second)
                             break
                     
                 else:
