@@ -22,12 +22,25 @@ function makes sense logically.
     
     
 CHECK_PATTERN()
-**for** every string in st_list, check if it **contains** given letter and digit.
-if does not contain both letter and digit, *continue*
-if it contains both letter and digit:
+**for** every string in st_list, check **if** it **contains** given letter and digit.
+**if** does not contain both letter and digit, *continue*
+**if** it contains both letter and digit:
     check which comes first (letter always comes first, I think, because of the order 
     of the inputs)
         **if** in the correct order, *break* loop and print -- or something
         > (we don't want it to break the loop before it has finished going through the
-          whole list, but we do want it to remember to print the matching value)
+          whole list, but we do want it to remember to print the matching value. use
+          `print(speck, end = " ")`)
         **else** it is not in the right order, we *continue*
+        
+oh oh oh!
+we have one list that is st_list, has all the string values.
+we have another list made up of just the values that are matching. use append()?
+then at the end print that matching list.
+
+and now checking the order of the letters/numbers in the string:
+for all characters in current string -> for chars in string[len(idx)]
+  > the idea here is that python iterates over each character in the string, and knows
+    how many times to do this by doing it once for each character in the string.
+figure out which element is the first letter and which element number is the first
+digit. compare those two index numbers. if they come in the right order, move forward.
