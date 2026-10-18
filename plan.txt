@@ -65,3 +65,10 @@ check_pattern is able to identify which strings have both the letter and digit i
 right order. NEXT: adjust printing so only those identified strings are printed. try
 doing this with append to a new list perhaps, that then is printed in a for loop after
 "strings with the pattern:"?
+
+
+new problem:
+when given A1, check_pattern identifies both AA@1 and @1@A. But it should not identify
+the second one because 1 and A are in the wrong order. same with C3 -- none match but
+one prints. Why is this resulting in out-of-order input matching strings still 
+printing?
