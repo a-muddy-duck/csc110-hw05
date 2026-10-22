@@ -34,12 +34,10 @@ def get_digit():
             print("Error: your input should be only digits.")
             num_key = input("Give a single number character: ")
             continue
-        # they did provide a digit:
-        else:
-            # check if it's between 1 and 3
-            if num_key == "1" or num_key == "2" or num_key == "3": # right range
-                break
-            else: # it's not between 1 and 3
+        # they did provide a digit:  check if it's between 1 and 3
+        elif num_key == "1" or num_key == "2" or num_key == "3": # right range
+            break
+        else: # it's not between 1 and 3
                 print("Error: a single digit needs to be in [1,3].")
                 num_key = input("Give a single number character: ")
                 continue
@@ -52,32 +50,38 @@ def check_pattern(letter, digit, lst):
     """ check the list for strings that contain provided letter and digit in same order """
     global st_list
     global match
-    for item in st_list[0:17]:
+    for item in lst[0:17]:
         if letter in item:
             str_len = len(item)
             count = 0
             if digit not in item: # can't be this one, move on
                 continue
-            else: # if both digit and letter are in the list item
+            else: # if both digit and letter are in the list item, check order
                 first = ""
                 for char in item[0:str_len]:
                     count += 1
                     if char == letter or char == digit:
-                        
+                        # 'first' and 'second' are variables 
                         while first == "" and char != digit:
+                            # first has not been filled already and will now be filled
+                            # by a letter
                             first = item[count-1]
                             break
                         while first != "" and char == digit:
+                            # first has been filled and second will now be filled by
+                            # a digit
                             second = item[count-1]
-                            while item not in match: # doesn't add dupes
+                            while item not in match:
+                                # add the item that matches letter and number in the
+                                # right order (letter first, digit second) to a list of
+                                # only strings that match, but only if the matching
+                                # string has not already been added (so ex. C2C2 only
+                                # gets printed once)
                                 match.append(item)
                             break
                     
                 else:
-                    continue
-            # todo: check if they are in the right order
-            # when true, append current item to a list of just matching values
-            
+                    continue          
             
         else: # can't be this list item, move to the next one in the list
             continue
@@ -90,8 +94,6 @@ def check_pattern(letter, digit, lst):
     print()
 
 
-#  The function main is INCOMPLETE, you must finish it
-# before you submit
 def main ():
     """ gets a letter-num pair and searches inside a list for matches"""
 
@@ -103,7 +105,6 @@ def main ():
     "1B1B", "333B", "1@CC", "3@@C", "333C"]
     
 
-    # TODO: Add your calls to get_letter, get_digit, and check_pattern
     # Inside a loop so that:
     #     After printing the results, a prompt appears requiring an input
     #          with the text: "Try Again? (y/n): "
@@ -122,7 +123,7 @@ def main ():
         again = input("Try Again? (y/n): ")
 
     # -------------------------------------------------
-    # No need to modify anything Below this line
+    # No need to modify anything below this line
     print("The End")
     
 
