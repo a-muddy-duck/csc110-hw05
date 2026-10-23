@@ -286,7 +286,7 @@ The submission:
     - [x] adds a few small but informative comments (or -5%)
     - [x] adds docstrings to each function (or -5%)
     - [ ] Passes all tests (or lose points per missed test). If you do not pass all tests, do not check this box
-    **Hi Jordan!** We talked in office hours on Friday 10/23 and discussed how my code is still failing tests 1.10 and 1.11 (which check A1 and C3, respectively), and you think it might be something finicky with the tests. The outputs my code makes are what you wanted though :)
+    **Hi Jordan!** We talked in office hours on Friday 10/23 and we got my code not to fail 1.10 and 1.11 (which check A1 and C3, respectively) by initializing match within check_pattern() since the test does not run main() (which was where match was initialized originally)
     - [x] You checked the correct boxes
 
 ## Submitting

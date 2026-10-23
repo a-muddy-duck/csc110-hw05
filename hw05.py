@@ -48,7 +48,7 @@ def get_digit():
 
 def check_pattern(letter, digit, lst):
     """ check the list for strings that contain provided letter and digit in same order """
-    
+    match = []
     for item in lst:
         if letter in item:
             str_len = len(item)
@@ -98,7 +98,6 @@ def main ():
 
     # The list inside of which we will search the user pair (DO NOT MODIFY)
     # -------------------------------------------------
-    global st_list
     st_list = ["@C@2", "@2B", "A3", "C2C2", "AA@1", "@B@33",
     "B@2@", "@@C1", "1B@", "A@@2", "@A3@", "@1@A", "2AA@",
     "1B1B", "333B", "1@CC", "3@@C", "333C"]
@@ -114,8 +113,6 @@ def main ():
     # -------------------------------------------------
     again = "y"
     while again == "y":
-        global match
-        match = list()
         letter = get_letter()
         digit = get_digit()
         check_pattern(letter, digit, st_list)
