@@ -1,6 +1,6 @@
 """
 Name: Ash Rulifson
-Peers: (add any collaborators)
+Peers: office hours with Jordan
 References: (anything you checked to solve this)
 Due: October 23, 2026
 """
@@ -48,9 +48,8 @@ def get_digit():
 
 def check_pattern(letter, digit, lst):
     """ check the list for strings that contain provided letter and digit in same order """
-    global st_list
-    global match
-    for item in lst[0:17]:
+    
+    for item in lst:
         if letter in item:
             str_len = len(item)
             count = 0
